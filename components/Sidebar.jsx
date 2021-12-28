@@ -85,6 +85,7 @@ const Section = styled.section`
     .brand {
       width: 100%;
       display: flex;
+      border-bottom: 0.1px solid white;
       justify-content: center;
       align-items: center;
       gap: 2rem;
@@ -125,8 +126,7 @@ const Section = styled.section`
         .active {
           background-color: yellow;
           a {
-                color: black;
-            
+            color: black;
           }
         }
       }
