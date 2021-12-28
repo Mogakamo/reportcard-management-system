@@ -57,7 +57,7 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="logout">
-          <a onClick={() => (signOut)}>
+          <a onClick={signOut}>
             <FiLogOut />
             <span  className="logout">Logout</span>
           </a>
