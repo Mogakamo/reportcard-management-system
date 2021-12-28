@@ -13,22 +13,24 @@ import { BsFillChatTextFill } from "react-icons/bs";
 import { IoSettings } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
-
+import {useRouter} from 'next/router'
+import { signOut } from 'next-auth/react'
 
 export default function Sidebar() {
     const [currentLink, setCurrentLink] = useState(1)
+    const router = useRouter()
 
     return (
       <Section>
         <div className="top">
           <div className="brand">
             <GoBriefcase />
-            <span>Examination</span>
+            <span>Exams</span>
           </div>
           <div className="links">
             <ul>
               <li className={currentLink === 1 ? "active" : "none"}>
-                <a href="/dashboard">
+                <a href="" onClick={() => router.push('/teacher_dashboard')}>
                   <MdSpaceDashboard />
                   <span>Dashboard</span>
                 </a>
@@ -55,9 +57,9 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="logout">
-          <a href="#">
+          <a onClick={() => (signOut)}>
             <FiLogOut />
-            <span className="logout">Logout</span>
+            <span  className="logout">Logout</span>
           </a>
         </div>
       </Section>
@@ -83,7 +85,9 @@ const Section = styled.section`
     gap: 2rem;
     width: 100%;
     .brand {
-      width: 100%;
+      width: 90%;
+      margin-left: 1rem;
+      margin-right: 1rem;
       display: flex;
       border-bottom: 0.1px solid white;
       justify-content: center;
