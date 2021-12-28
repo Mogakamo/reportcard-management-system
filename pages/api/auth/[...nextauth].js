@@ -1,5 +1,6 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider  from "next-auth/providers/credentials";
+import User, { UserSchema } from "../../../models/User";
 
 // const isCorrectCredentials = credentials =>
 //     credentials.username === process.env.NEXTAUTH_USERNAME &&
@@ -35,4 +36,14 @@ export default NextAuth({
             },
         }),
     ],
+
+    adapter: Adapter.TypeORM.Adapter(
+        process.env.MONGODB_URI,
+        {
+            models: {
+                User: { model: User, schema: UserSchema },
+                // User: Model.User
+            }
+        }
+    )
 });
