@@ -28,7 +28,7 @@ export default function Sidebar() {
           <div className="links">
             <ul>
               <li className={currentLink === 1 ? "active" : "none"}>
-                <a href="">
+                <a href="/dashboard">
                   <MdSpaceDashboard />
                   <span>Dashboard</span>
                 </a>
